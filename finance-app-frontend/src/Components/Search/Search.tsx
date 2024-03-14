@@ -1,13 +1,25 @@
-import { TextField } from '@mui/material'
-import React, { useState } from 'react'
+import { Box, Button, TextField } from "@mui/material";
+import React, { useState } from "react";
 
-const Search :React.FC= () :JSX.Element => {
-    const [search, setSearch]=useState<string>('')
-    console.log(search)
+const Search: React.FC = (): JSX.Element => {
+  const [search, setSearch] = useState<string>("");
 
   return (
-    <TextField id="outlined-basic" label="Outlined" variant="outlined" sx={{mb:5}} value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
-  )
-}
+    <Box display="flex">
+      <TextField
+        id="outlined-basic"
+        label="Outlined"
+        variant="outlined"
+        value={search}
+        onChange={(e) => {
+          setSearch(e.target.value);
+        }}
+      />
+      <Button variant="contained" sx={{ margin: 1 }}>
+        Search
+      </Button>
+    </Box>
+  );
+};
 
-export default Search
+export default Search;
