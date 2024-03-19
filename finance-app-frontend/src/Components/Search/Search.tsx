@@ -1,8 +1,10 @@
 import { Box, Button, TextField } from "@mui/material";
 import React, { useState } from "react";
+import { useSearch } from "../SearchContext";
 
 const Search: React.FC = (): JSX.Element => {
   const [search, setSearch] = useState<string>("");
+  const {performSearch}=useSearch()
 
   return (
     <Box display="flex">
@@ -15,7 +17,7 @@ const Search: React.FC = (): JSX.Element => {
           setSearch(e.target.value);
         }}
       />
-      <Button variant="contained" sx={{ margin: 1 }}>
+      <Button variant="contained" sx={{ margin: 1 }} onClick={()=>{performSearch(search)}}>
         Search
       </Button>
     </Box>
