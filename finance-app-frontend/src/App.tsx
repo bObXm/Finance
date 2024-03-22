@@ -6,6 +6,7 @@ import { useState } from "react";
 import Portofolio from "./Components/Portofolio/Portfolio";
 import { CompanySearch } from "./dtos";
 import Navbar from "./Components/Navbar/Navbar";
+import Hero from "./Components/Hero/Hero";
 
 function App() {
 const[portfolio, setPortfolio]=useState<CompanySearch[]>([])
@@ -22,12 +23,13 @@ const addToPortfolio = (stock:CompanySearch) => {
 const deleteStock=(symbol:string)=>{
   setTimeout(() => {
     setPortfolio(portfolio.filter(el=>el.symbol!==symbol))
-  }, 500);
+  }, 300);
 }
 
   return (
     <SearchProvider>
       <Navbar/>
+      <Hero/>
       <Container sx={{ padding: 2 }}>
         <Box display="flex" flexDirection="column" alignItems="center">
           <Search />

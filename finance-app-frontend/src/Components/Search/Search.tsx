@@ -17,7 +17,7 @@ const Search: React.FC = (): JSX.Element => {
           setSearch(e.target.value);
         }}
       />
-      <Button variant="contained" sx={{ margin: 1 }} onClick={()=>{performSearch(search)}}>
+      <Button variant="contained" sx={{ margin: 1, fontWeight: 'bold',  backgroundColor: '#4caf50', '&:hover': {backgroundColor: '#388e3c' } }} onClick={()=>{performSearch(search)}}>
         Search
       </Button>
     </Box>
