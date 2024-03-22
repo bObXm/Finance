@@ -3,30 +3,36 @@ import CardList from "./Components/CardList/CardList";
 import Search from "./Components/Search/Search";
 import { SearchProvider } from "./Components/SearchContext";
 import { useState } from "react";
-import Portofolio from "./Components/Portofolio/Portofolio";
+import Portofolio from "./Components/Portofolio/Portfolio";
 import { CompanySearch } from "./dtos";
+import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
 const[portfolio, setPortfolio]=useState<CompanySearch[]>([])
 
 const addToPortfolio = (stock:CompanySearch) => {
-  setPortfolio((currentPortfolio) => {
-    if (!currentPortfolio.some((p) => p.symbol === stock.symbol)) {
-      return [...currentPortfolio, stock];
+  setPortfolio((currentPortofolio) => {
+    if (!currentPortofolio.some((p) => p.symbol === stock.symbol)) {
+      return [...currentPortofolio, stock];
     }
-    return currentPortfolio;
+    return currentPortofolio;
   });
 };
 
-// console.log(portfolio)
+const deleteStock=(symbol:string)=>{
+  setTimeout(() => {
+    setPortfolio(portfolio.filter(el=>el.symbol!==symbol))
+  }, 500);
+}
 
   return (
     <SearchProvider>
+      <Navbar/>
       <Container sx={{ padding: 2 }}>
         <Box display="flex" flexDirection="column" alignItems="center">
           <Search />
           <CardList addToPortfolio={addToPortfolio}/>
-          <Portofolio stocks={portfolio}/>
+          <Portofolio stocks={portfolio} deleteStock={deleteStock}/>
         </Box>
       </Container>
     </SearchProvider>

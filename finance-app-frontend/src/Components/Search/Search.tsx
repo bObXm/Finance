@@ -10,7 +10,7 @@ const Search: React.FC = (): JSX.Element => {
     <Box display="flex">
       <TextField
         id="outlined-basic"
-        label="Outlined"
+        label="Search companies"
         variant="outlined"
         value={search}
         onChange={(e) => {
