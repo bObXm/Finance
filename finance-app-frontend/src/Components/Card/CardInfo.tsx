@@ -49,7 +49,7 @@ const CardInfo: React.FC<Props> = ({
           <Button
             sx={{ display: "flex", justifyContent: "center", marginTop: 3, fontWeight: 'bold' }}
             variant="outlined"
-            endIcon={<ShowChartIcon />}
+            endIcon={<ShowChartIcon/>}
             onClick={()=>{addToPortfolio(stock)}}
           >
             Add Stock
