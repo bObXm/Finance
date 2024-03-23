@@ -38,7 +38,7 @@ const CardInfo: React.FC<Props> = ({
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: 'bold' }}>
             {name} ({symbol})
           </Typography>
           <p>${currency}</p>
@@ -47,7 +47,7 @@ const CardInfo: React.FC<Props> = ({
           </Typography>
         
           <Button
-            sx={{ display: "flex", justifyContent: "center", marginTop: 3 }}
+            sx={{ display: "flex", justifyContent: "center", marginTop: 3, fontWeight: 'bold' }}
             variant="outlined"
             endIcon={<ShowChartIcon />}
             onClick={()=>{addToPortfolio(stock)}}

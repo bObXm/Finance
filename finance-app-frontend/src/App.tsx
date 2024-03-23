@@ -32,7 +32,7 @@ const deleteStock=(symbol:string)=>{
       <Hero/>
       <Container sx={{ padding: 2 }}>
         <Box display="flex" flexDirection="column" alignItems="center">
-          <Search />
+          <Search/>
           <CardList addToPortfolio={addToPortfolio}/>
           <Portofolio stocks={portfolio} deleteStock={deleteStock}/>
         </Box>
