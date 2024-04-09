@@ -2,6 +2,7 @@ import React from "react";
 import { CompanySearch } from "../../dtos";
 import { Card, CardContent, IconButton, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Link } from "react-router-dom";
 
 type Props = {
   stock: CompanySearch;
@@ -17,12 +18,16 @@ const CardPortfolio: React.FC<Props> = ({ stock, deleteStock}) => {
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           {exchangeShortName} - {stockExchange}
         </Typography>
+        
         <Typography variant="h5" component="div">
+          <Link to={`/company/${symbol}`}>
           {name} ({symbol})
-          <IconButton aria-label="delete" color="error" onClick={()=>{deleteStock(symbol)}}>
+          </Link>
+          <IconButton aria-label="delete" color="error" sx={{marginLeft:'0.5rem'}} onClick={()=>{deleteStock(symbol)}}>
             <DeleteIcon />
           </IconButton>
         </Typography>
+        
       </CardContent>
     </Card>
   );

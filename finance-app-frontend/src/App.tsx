@@ -4,8 +4,10 @@ import Hero from "./Components/Hero/Hero";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SharedLayout from "./Components/SharedLayout/SharedLayout";
 import SearchPage from "./Components/Pages/SearchPage";
+import Company from "./Components/Pages/CompanyPage";
 
 function App() {
+
   return (
     <BrowserRouter>
       <SearchProvider>
@@ -14,6 +16,7 @@ function App() {
           <Route element={<SharedLayout />} />
           <Route path="/" element={<Hero />} />
           <Route path="search" element={<SearchPage />} />
+          <Route path="company/:symbol" element={<Company/>}/>
         </Routes>
       </SearchProvider>
     </BrowserRouter>

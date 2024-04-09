@@ -5,6 +5,8 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import ShowChartIcon from "@mui/icons-material/ShowChart";
 import { CompanySearch } from "../../dtos";
+import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';
+import { Link } from "react-router-dom";
 
 
 type Props = {
@@ -27,20 +29,25 @@ const CardInfo: React.FC<Props> = ({
   addToPortfolio 
 }): JSX.Element => {
 
+ 
+
   const stock = { id, name, symbol, currency, exchangeShortName, stockExchange };
+  const imageUrl = `https://financialmodelingprep.com/image-stock/${symbol}.png`;
 
   return (
     <Card sx={{ maxWidth: 345, margin: 2 }}>
         <CardMedia
           component="img"
           height="140"
-          image="https://images.unsplash.com/photo-1527942364978-2b826fc00de6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHJlcHRpbGV8ZW58MHx8MHx8fDA="
+          image={imageUrl}
           alt="green iguana"
         />
         <CardContent>
+          <Link to={`/company/${symbol}`}>
           <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: 'bold' }}>
-            {name} ({symbol})
+            {name} ({symbol}) <CandlestickChartIcon fontSize="large" color="success"/>
           </Typography>
+          </Link>
           <p>${currency}</p>
           <Typography variant="body2" color="text.secondary">
             {exchangeShortName} - {stockExchange}
