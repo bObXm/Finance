@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -13,12 +12,41 @@ import ShowChartIcon from "@mui/icons-material/ShowChart";
 import MenuIcon from "@mui/icons-material/Menu";
 import ApartmentIcon from '@mui/icons-material/Apartment';
 
-const Sidebar: React.FC = ():JSX.Element => {
+const Sidebar: React.FC<{onSectionChange: (section: string) => void}>= ({onSectionChange}):JSX.Element => {
   const [open, setOpen] = useState(false);
 
-  const handleDrawerToggle = () => {
-    setOpen(!open);
-  };
+  const navigationItems = [
+    {
+      icon: <ApartmentIcon />,
+      text: "Company Profile",
+      link: "/company-profile",
+      section: 'profile',
+    },
+    {
+      icon: <TableViewIcon />,
+      text: "Income Statement",
+      link: "/income-statement",
+      section: 'incomeStatement',
+    },
+    {
+      icon: <AccountBalanceIcon />,
+      text: "Balance Sheet",
+      link: "/balance-sheet",
+      section: 'balanceSheet',
+    },
+    {
+      icon: <MonetizationOnIcon />,
+      text: "Cashflow Statement",
+      link: "/cashflow-statement",
+      section: 'cashflowStatement',
+    },
+    {
+      icon: <ShowChartIcon />,
+      text: "Historical Dividend",
+      link: "/historical-dividend",
+      section: 'historicalDividend',
+    },
+  ];
 
   return (
     <Drawer
@@ -35,7 +63,7 @@ const Sidebar: React.FC = ():JSX.Element => {
       }}
     >
       <IconButton
-        onClick={handleDrawerToggle}
+        onClick={()=>{setOpen(!open)}}
         sx={{
           marginLeft: open ? 1 : "auto",
           marginRight: open ? 1 : "auto",
@@ -45,36 +73,14 @@ const Sidebar: React.FC = ():JSX.Element => {
         <MenuIcon />
       </IconButton>
       <List>
-        {[
-          {
-            icon: <ApartmentIcon />,
-            text: "Company Profile",
-            link: "company-profile",
-          },
-          {
-            icon: <TableViewIcon />,
-            text: "Income Statement",
-            link: "income-statement",
-          },
-          {
-            icon: <AccountBalanceIcon />,
-            text: "Balance Sheet",
-            link: "balance-sheet",
-          },
-          {
-            icon: <MonetizationOnIcon />,
-            text: "Cashflow Statement",
-            link: "cashflow-statement",
-          },
-          {
-            icon: <ShowChartIcon />,
-            text: "Historical Dividend",
-            link: "historical-dividend",
-          },
-        ].map((item) => (
-          <ListItem key={item.text} component={Link} to={item.link} sx={{'&:hover': {backgroundColor: 'rgba(0, 0, 0, 0.04)'}}}>
+        {navigationItems.map((item) => (
+          <ListItem 
+            key={item.text} 
+            sx={{'&:hover': {backgroundColor: 'rgba(0, 0, 0, 0.04)'}}}
+            onClick={() => onSectionChange(item.section)}
+          >
             <ListItemIcon>{item.icon}</ListItemIcon>
-            {open && <ListItemText primary={item.text} primaryTypographyProps={{ fontWeight: 'bold' }}/>}
+            {open && <ListItemText primary={item.text}/>}
           </ListItem>
         ))}
       </List>

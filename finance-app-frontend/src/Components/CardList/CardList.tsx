@@ -3,13 +3,11 @@ import CardInfo from "../Card/CardInfo";
 import Alert from '@mui/material/Alert';
 import { useSearch } from "../SearchContext";
 import { CompanySearch } from "../../dtos";
-import { log } from "console";
 const { v4: uuidv4 } = require('uuid');
 
 const CardList: React.FC<{ addToPortfolio: (stock: CompanySearch) => void }> = ({addToPortfolio}): JSX.Element => {
   const { searchResults } = useSearch();
 
-  console.log(searchResults)
   return (
     <div>
       {!searchResults ? (

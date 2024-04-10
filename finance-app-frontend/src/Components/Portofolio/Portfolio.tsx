@@ -10,7 +10,6 @@ type PortfolioProps ={
 }
 
 const Portfolio : React.FC<PortfolioProps> = ({stocks, deleteStock}) : JSX.Element => {
-  console.log(stocks)
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop:'1rem' }}>

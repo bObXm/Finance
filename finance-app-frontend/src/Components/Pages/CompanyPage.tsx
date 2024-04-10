@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom";
 import { getCompanyProfie } from "../../api";
 import { CompanyProfile } from "../../dtos";
 import Sidebar from "../Sidebar/Sidebar";
+import CompanyDashboard from "../CompanyDashboard/CompanyDashboard";
 
-const Company: React.FC = (): JSX.Element => {
+const CompanyPage : React.FC = (): JSX.Element => {
   const { symbol } = useParams();
   const [ company, setCompany]=useState<CompanyProfile[]>([]);
- 
+  const [ activeSection, setActiveSection]= useState('profile')
+
 
   useEffect(() => {
    const getCompanyInfo=async()=>{
@@ -20,14 +22,11 @@ const Company: React.FC = (): JSX.Element => {
 
 
   return (
-    <Container
-      sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}
-    >
-      <Sidebar/>
-      {company.length===0 ? <CircularProgress color="success" /> : company[0].ceo}
-      
+    <Container sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
+      <Sidebar onSectionChange={setActiveSection}/>
+      {company.length===0 ? <CircularProgress color="success" /> : <CompanyDashboard activeSection={activeSection}/>}
     </Container>
   );
 };
 
-export default Company;
+export default CompanyPage ;
