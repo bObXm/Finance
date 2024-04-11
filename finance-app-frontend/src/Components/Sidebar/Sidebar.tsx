@@ -58,7 +58,7 @@ const Sidebar: React.FC<{onSectionChange: (section: string) => void}>= ({onSecti
           width: open ? 250 : 57, 
           boxSizing: "border-box",
           marginTop: 8, 
-          overflowX: "hidden", 
+          overflowX: "hidden",
         },
       }}
     >

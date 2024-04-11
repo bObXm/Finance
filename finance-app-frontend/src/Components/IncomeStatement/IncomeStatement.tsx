@@ -1,8 +1,9 @@
-import React from 'react'
+import Table from '../Table/Table'
+
 
 const IncomeStatement = () => {
   return (
-    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit debitis veniam ea odio dicta magni, aut tempora recusandae, quos saepe libero non expedita eos culpa voluptas. Explicabo optio dolores sapiente?</div>
+    <Table/>
   )
 }
 

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { CompanySearch } from "../../dtos";
-import Search from "../Search/Search";
-import CardList from "../CardList/CardList";
-import Portofolio from "../Portofolio/Portfolio";
+import { CompanySearch } from "../dtos";
+import Search from "../Components/Search/Search";
+import CardList from "../Components/CardList/CardList";
+import Portofolio from "../Components/Portofolio/Portfolio";
 import { Container } from "@mui/material";
 
 

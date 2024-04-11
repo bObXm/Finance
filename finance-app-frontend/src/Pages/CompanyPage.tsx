@@ -1,10 +1,10 @@
 import { CircularProgress, Container } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getCompanyProfie } from "../../api";
-import { CompanyProfile } from "../../dtos";
-import Sidebar from "../Sidebar/Sidebar";
-import CompanyDashboard from "../CompanyDashboard/CompanyDashboard";
+import { getCompanyProfie } from "../api";
+import { CompanyProfile } from "../dtos";
+import Sidebar from "../Components/Sidebar/Sidebar";
+import CompanyDashboard from "../Components/CompanyDashboard/CompanyDashboard";
 
 const CompanyPage : React.FC = (): JSX.Element => {
   const { symbol } = useParams();
@@ -20,6 +20,7 @@ const CompanyPage : React.FC = (): JSX.Element => {
    getCompanyInfo()
   }, []);
 
+console.log(company)
 
   return (
     <Container sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>

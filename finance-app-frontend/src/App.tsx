@@ -3,9 +3,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SharedLayout from "./Components/SharedLayout/SharedLayout";
-import SearchPage from "./Components/Pages/SearchPage";
-import CompanyProfile from "./Components/CompanyProfile/CompanyProfile";
-import CompanyPage from "./Components/Pages/CompanyPage";
+import SearchPage from "./Pages/SearchPage";
+import CompanyPage from "./Pages/CompanyPage";
 
 function App() {
 
