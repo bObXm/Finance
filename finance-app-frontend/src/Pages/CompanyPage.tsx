@@ -11,7 +11,6 @@ const CompanyPage : React.FC = (): JSX.Element => {
   const [ company, setCompany]=useState<CompanyProfile[]>([]);
   const [ activeSection, setActiveSection]= useState('profile')
 
-
   useEffect(() => {
    const getCompanyInfo=async()=>{
     const response=await getCompanyProfie(symbol!)
@@ -20,7 +19,6 @@ const CompanyPage : React.FC = (): JSX.Element => {
    getCompanyInfo()
   }, []);
 
-console.log(company)
 
   return (
     <Container sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>

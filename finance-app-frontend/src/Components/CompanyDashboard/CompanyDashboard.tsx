@@ -14,10 +14,10 @@ const CompanyDashboard: React.FC<CompanyDashboardProps> = ({activeSection }):JSX
   switch(activeSection){
     case 'profile':
       ContentComponent=<CompanyProfile />
-      break;
+    break;
     case 'incomeStatement':
       ContentComponent=<IncomeStatement />
-      break;
+    break;
   }
 
 
