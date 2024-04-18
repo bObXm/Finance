@@ -4,9 +4,8 @@ import React from 'react'
 type Props = {
     data:{
         title: string,
-        value: string
+        value: string | number
     }
-    
 };
 
 const Tile: React.FC<Props> = ({data}): JSX.Element => {

@@ -3,24 +3,30 @@ import Tile from '../Tile/Tile';
 import CompanyProfile from '../CompanyProfile/CompanyProfile';
 import React from 'react';
 import IncomeStatement from '../IncomeStatement/IncomeStatement';
+import { CompanyProfile as CompanyProfileInfo } from "../../dtos";
+
 
 type CompanyDashboardProps ={
   activeSection: string;
+  company:CompanyProfileInfo[]
 }
 
-const CompanyDashboard: React.FC<CompanyDashboardProps> = ({activeSection }):JSX.Element => {
+const CompanyDashboard: React.FC<CompanyDashboardProps> = ({activeSection, company }):JSX.Element => {
   let ContentComponent: React.ReactNode = null
+
+  let data= company[0]
+
 
   switch(activeSection){
     case 'profile':
       ContentComponent=<CompanyProfile />
     break;
     case 'incomeStatement':
-      ContentComponent=<IncomeStatement />
+      ContentComponent=<IncomeStatement data={data}/>
     break;
   }
 
-
+  
 
   return (
     <Box sx={{ ml: { md: '64px' }, bg: 'blueGray.100', width: '100%' }}>
@@ -28,10 +34,10 @@ const CompanyDashboard: React.FC<CompanyDashboardProps> = ({activeSection }):JSX
         <Box sx={{ px: { xs: 4, md: 6 }, mx: 'auto', width: '100%' }}>
           <Grid container spacing={4}>
             {[
-              { title: 'Traffic', value: '350,897' },
-              { title: 'NEW USERS', value: '2,356' },
-              { title: 'SALES', value: '924' },
-              { title: 'PERFORMANCE', value: '49,65%' },
+              { title: 'City', value: data.city },
+              { title: 'Price', value: data.price },
+              { title: 'IPO Date', value: data.ipoDate.split('-').reverse().join('-') },
+              { title: 'Full Time Employees', value: data.fullTimeEmployees },
             ].map((data) => (
               <Tile data={data} key={data.value}/>
             ))}

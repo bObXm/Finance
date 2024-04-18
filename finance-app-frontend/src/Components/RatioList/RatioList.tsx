@@ -1,13 +1,13 @@
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
 import React from 'react'
-import { TestDataCompany } from '../Table/testData';
+import { CompanyProfile } from '../../dtos';
 
-const RatioList : React.FC = ():JSX.Element => {
+type Props={
+  data:CompanyProfile
+}
 
-    let data=TestDataCompany
-    console.log(data);
-    
+const RatioList : React.FC <Props> = ({data}):JSX.Element => {
 
   return (
     <Accordion sx={{margin:4}}>
@@ -16,16 +16,31 @@ const RatioList : React.FC = ():JSX.Element => {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography fontWeight={'bold'}>{data[0].companyName} Info:</Typography>
+          <Typography fontWeight={'bold'}>{data.companyName} Info:</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-           Price: {data[0].price}
+           <b>CEO:</b> {data.ceo}
           </Typography>
         </AccordionDetails>
         <AccordionDetails>
           <Typography>
-          Website: {data[0].website}
+          <b>Industry:</b> {data.industry}
+          </Typography>
+        </AccordionDetails>
+        <AccordionDetails>
+          <Typography>
+          <b>Sector:</b> {data.sector}
+          </Typography>
+        </AccordionDetails>
+        <AccordionDetails>
+          <Typography>
+          <b>Phone:</b> {data.phone}      
+          </Typography>
+        </AccordionDetails>
+        <AccordionDetails>
+          <Typography>
+          <b>Website:</b> {data.website}      
           </Typography>
         </AccordionDetails>
       </Accordion>

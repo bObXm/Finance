@@ -19,11 +19,13 @@ const CompanyPage : React.FC = (): JSX.Element => {
    getCompanyInfo()
   }, []);
 
+  
+
 
   return (
     <Container sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
       <Sidebar onSectionChange={setActiveSection}/>
-      {company.length===0 ? <CircularProgress color="success" /> : <CompanyDashboard activeSection={activeSection}/>}
+      {company.length===0 ? <CircularProgress color="success" /> : <CompanyDashboard activeSection={activeSection} company={company}/>}
     </Container>
   );
 };
