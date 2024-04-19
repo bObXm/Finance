@@ -1,6 +1,6 @@
 import { Box, Button, TextField } from "@mui/material";
 import React, { useState } from "react";
-import { useSearch } from "../SearchContext";
+import { useSearch } from "../../SearchContext";
 
 const Search: React.FC = (): JSX.Element => {
   const [search, setSearch] = useState<string>("");

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { CompanySearch } from "../dtos";
 import Search from "../Components/Search/Search";
