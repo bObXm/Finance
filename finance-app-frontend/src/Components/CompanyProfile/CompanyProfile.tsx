@@ -6,6 +6,7 @@ import { Accordion, AccordionSummary,Typography } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import InfoIcon from "@mui/icons-material/Info";
 import PaidIcon from '@mui/icons-material/Paid';
+import PriceChangeIcon from '@mui/icons-material/PriceChange';
 import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 import ScoreIcon from '@mui/icons-material/Score';
@@ -33,9 +34,10 @@ const CompanyProfile: React.FC = ():JSX.Element => {
 
   return (
     <Accordion sx={{ margin: 4 }}>
-      <AccordionSummary expandIcon={<ArrowDownwardIcon />} aria-controls="panel1-content" id="panel1-header">
+      <AccordionSummary expandIcon={<ArrowDownwardIcon />} aria-controls="panel1-content"id="panel1-header">
         <Typography fontWeight={"bold"}>{symbol} Stats:</Typography>
       </AccordionSummary>
+    
     {
       data ? 
       <div>

@@ -13,7 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ApartmentIcon from '@mui/icons-material/Apartment';
 
 const Sidebar: React.FC<{onSectionChange: (section: string) => void}>= ({onSectionChange}):JSX.Element => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const navigationItems = [
     {
@@ -76,7 +76,7 @@ const Sidebar: React.FC<{onSectionChange: (section: string) => void}>= ({onSecti
         {navigationItems.map((item) => (
           <ListItem 
             key={item.text} 
-            sx={{'&:hover': {backgroundColor: 'rgba(0, 0, 0, 0.04)', cursor: "pointer"}}}
+            sx={{'&:hover': {backgroundColor: 'rgba(0, 0, 0, 0.04)'}}}
             onClick={() => onSectionChange(item.section)}
           >
             <ListItemIcon>{item.icon}</ListItemIcon>

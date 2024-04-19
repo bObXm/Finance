@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from "react";
 import CardInfo from "../Card/CardInfo";
 import Alert from '@mui/material/Alert';
-import { useSearch } from "../../SearchContext";
+import { useSearch } from "../SearchContext";
 import { CompanySearch } from "../../dtos";
 const { v4: uuidv4 } = require('uuid');
 
