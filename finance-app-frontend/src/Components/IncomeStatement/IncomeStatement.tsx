@@ -22,10 +22,6 @@ const IncomeStatement: React.FC<Props> = ({data}):JSX.Element => {
     getIncomeStatementInfo()
   },[])
 
- 
-  console.log(incomeStatement);
-  
-
   return (
     <Container maxWidth='lg'>
       <RatioList data={data}/>

@@ -2,6 +2,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
 import React from 'react'
 import { CompanyProfile } from '../../dtos';
+import { Link } from 'react-router-dom';
 
 type Props={
   data:CompanyProfile
@@ -40,7 +41,7 @@ const RatioList : React.FC <Props> = ({data}):JSX.Element => {
         </AccordionDetails>
         <AccordionDetails>
           <Typography>
-          <b>Website:</b> {data.website}      
+          <b>Website:</b> <Link to={data.website} target='_blank'>{data.website} </Link>     
           </Typography>
         </AccordionDetails>
       </Accordion>

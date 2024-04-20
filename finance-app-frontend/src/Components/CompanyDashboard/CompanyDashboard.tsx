@@ -4,6 +4,8 @@ import CompanyProfile from '../CompanyProfile/CompanyProfile';
 import React from 'react';
 import IncomeStatement from '../IncomeStatement/IncomeStatement';
 import { CompanyProfile as CompanyProfileInfo } from "../../dtos";
+import BalanceSheet from '../BalanceSheet/BalanceSheet';
+import CashflowStatement from '../CashflowStatement/CashflowStatement';
 
 
 type CompanyDashboardProps ={
@@ -24,6 +26,12 @@ const CompanyDashboard: React.FC<CompanyDashboardProps> = ({activeSection, compa
     case 'incomeStatement':
       ContentComponent=<IncomeStatement data={data}/>
     break;
+    case'balanceSheet':
+      ContentComponent=<BalanceSheet/>
+    break;
+    case 'cashflowStatement':
+      ContentComponent=<CashflowStatement/>
+    break;
   }
 
   
@@ -35,7 +43,7 @@ const CompanyDashboard: React.FC<CompanyDashboardProps> = ({activeSection, compa
           <Grid container spacing={4}>
             {[
               { title: 'City', value: data.city },
-              { title: 'Price', value: data.price },
+              { title: 'Price', value: data.price+' $' },
               { title: 'IPO Date', value: data.ipoDate.split('-').reverse().join('-') },
               { title: 'Full Time Employees', value: data.fullTimeEmployees },
             ].map((data) => (

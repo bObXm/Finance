@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { CompanyIncomeStatement, CompanyKeyMetrics, CompanyProfile, CompanySearch } from "./dtos";
 
 export const searchCompanies = async (query: string) => {
@@ -14,7 +14,7 @@ export const searchCompanies = async (query: string) => {
         error.response?.data?.message || error.message
       );
     } else {
-      console.error("Unexpected error: ", error);
+      console.error("Unexpected error:", error);
     }
   }
 };
@@ -31,7 +31,7 @@ export const getCompanyProfie = async (query: string) => {
         error.response?.data.message || error.message
       );
     } else {
-      console.error("Unexpected error: ", error);
+      console.error("Unexpected error:", error);
     }
   }
 };
@@ -44,7 +44,7 @@ export const getKeyMetrics = async (query: string) => {
     if(axios.isAxiosError(error)){
       console.error("Axios error:", error.response?.data.message || error.message)
     }else{
-      console.error("Unexpected error: ", error)
+      console.error("Unexpected error:", error)
     }
   }
 };
@@ -57,7 +57,33 @@ export const getIncomeStatement = async (query : string) => {
     if(axios.isAxiosError(error)){
       console.error("Axios error:", error.response?.data.message || error.message)
     }else{
-      console.error("Unexpected error: ", error)
+      console.error("Unexpected error:", error)
+    }
+  }
+}
+
+export const getBalanceSheet = async (query : string) =>{
+  try{
+    const response = await axios.get(`https://financialmodelingprep.com/api/v3/balance-sheet-statement/${query}?limit=20&apikey=${process.env.REACT_APP_API_KEY}`)
+    return response.data
+  }catch(error){
+    if(axios.isAxiosError(error)){
+      console.error("Axios error:", error.response?.data.message || error.message)
+    }else{
+      console.error("Unexpected error:", error)
+    }
+  }
+}
+
+export const getCashFlow = async (query : string) =>{
+  try{
+    const response= await axios.get(`https://financialmodelingprep.com/api/v3/cash-flow-statement/${query}?limit=100&apikey=${process.env.REACT_APP_API_KEY}`)
+    return response.data
+  }catch(error){
+    if(axios.isAxiosError(error)){
+      console.error("Axios error:", error.response?.data.message || error.message)
+    }else{
+      console.error("Unexpected error:", error)
     }
   }
 }

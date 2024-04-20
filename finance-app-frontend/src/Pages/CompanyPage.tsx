@@ -18,10 +18,7 @@ const CompanyPage : React.FC = (): JSX.Element => {
    }
    getCompanyInfo()
   }, []);
-
   
-
-
   return (
     <Container sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
       <Sidebar onSectionChange={setActiveSection}/>
