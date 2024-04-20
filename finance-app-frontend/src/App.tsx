@@ -1,4 +1,4 @@
-import { SearchProvider } from "./Components/SearchContext";
+import { SearchProvider } from "./SearchContext";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
 import { BrowserRouter, Route, Routes } from "react-router-dom";

@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Navbar: React.FC = (): JSX.Element => {
   return (
-    <AppBar position="static" color="default" elevation={0} sx={{ marginBottom: 4 }}>
+    <AppBar position="sticky" color="default" elevation={0} sx={{ marginBottom: 4 }}>
       <Toolbar>
         <Link to={"/"}>
           <InsightsIcon fontSize="large" sx={{ color: "#4caf50" }} />

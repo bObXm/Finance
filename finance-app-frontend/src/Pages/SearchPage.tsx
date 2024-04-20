@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { CompanySearch } from "../dtos";
 import Search from "../Components/Search/Search";
@@ -9,22 +9,22 @@ import { Container } from "@mui/material";
 
 const SearchPage:React.FC = ():JSX.Element => {
 
-    const [portfolio, setPortfolio] = useState<CompanySearch[]>([]);
+  const [portfolio, setPortfolio] = useState<CompanySearch[]>([]);
 
-    const addToPortfolio = (stock: CompanySearch) => {
-      setPortfolio((currentPortofolio) => {
-        if (!currentPortofolio.some((p) => p.symbol === stock.symbol)) {
-          return [...currentPortofolio, stock];
-        }
-        return currentPortofolio;
-      });
-    };
+  const addToPortfolio = (stock: CompanySearch) => {
+    setPortfolio((currentPortofolio) => {
+      if (!currentPortofolio.some((p) => p.symbol === stock.symbol)) {
+        return [...currentPortofolio, stock];
+      }
+      return currentPortofolio;
+    });
+  };
   
-    const deleteStock = (symbol: string) => {
-      setTimeout(() => {
-        setPortfolio(portfolio.filter((el) => el.symbol !== symbol));
-      }, 300);
-    };
+  const deleteStock = (symbol: string) => {
+    setTimeout(() => {
+      setPortfolio(portfolio.filter((el) => el.symbol !== symbol));
+    }, 300);
+  };
   
 
   return (

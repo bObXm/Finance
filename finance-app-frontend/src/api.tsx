@@ -1,13 +1,9 @@
-import axios, { Axios } from "axios";
-import { CompanyKeyMetrics, CompanyProfile, CompanySearch } from "./dtos";
-
-type SearchResponse = {
-  data: CompanySearch[];
-};
+import axios from "axios";
+import { CompanyIncomeStatement, CompanyKeyMetrics, CompanyProfile, CompanySearch } from "./dtos";
 
 export const searchCompanies = async (query: string) => {
   try {
-    const response = await axios.get<SearchResponse>(
+    const response = await axios.get<CompanySearch[]>(
       `https://financialmodelingprep.com/api/v3/search-ticker?query=${query}&limit=10&exchange=NASDAQ&apikey=${process.env.REACT_APP_API_KEY}`
     );
     return response.data;
@@ -52,3 +48,16 @@ export const getKeyMetrics = async (query: string) => {
     }
   }
 };
+
+export const getIncomeStatement = async (query : string) => {
+  try{
+    const response= await axios.get<CompanyIncomeStatement[]>(`https://financialmodelingprep.com/api/v3/income-statement/${query}?limit=50&apikey=${process.env.REACT_APP_API_KEY}`)
+    return response.data
+  }catch(error){
+    if(axios.isAxiosError(error)){
+      console.error("Axios error:", error.response?.data.message || error.message)
+    }else{
+      console.error("Unexpected error: ", error)
+    }
+  }
+}

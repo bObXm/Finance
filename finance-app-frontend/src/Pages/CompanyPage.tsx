@@ -12,7 +12,7 @@ const CompanyPage : React.FC = (): JSX.Element => {
   const [ activeSection, setActiveSection]= useState('profile')
 
   useEffect(() => {
-   const getCompanyInfo=async()=>{
+   const getCompanyInfo = async () =>{
     const response=await getCompanyProfie(symbol!)
     setCompany(response!)
    }
