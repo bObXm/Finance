@@ -18,7 +18,6 @@ const CompanyDashboard: React.FC<CompanyDashboardProps> = ({activeSection, compa
 
   let data= company[0]
 
-
   switch(activeSection){
     case 'profile':
       ContentComponent=<CompanyProfile />
@@ -33,8 +32,6 @@ const CompanyDashboard: React.FC<CompanyDashboardProps> = ({activeSection, compa
       ContentComponent=<CashflowStatement/>
     break;
   }
-
-  
 
   return (
     <Box sx={{ ml: { md: '64px' }, bg: 'blueGray.100', width: '100%' }}>

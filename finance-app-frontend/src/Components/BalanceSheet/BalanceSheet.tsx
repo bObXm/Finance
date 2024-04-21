@@ -6,7 +6,7 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import { CircularProgress, Container} from '@mui/material'
 
 const BalanceSheet : React.FC = ():JSX.Element => {
-  const[companyData, setCompanyData]=useState<CompanyBalanceSheet[]>([])
+  const[companyData, setCompanyData]=useState<CompanyBalanceSheet[] |undefined>([])
   const {symbol}=useParams()
     
   useEffect(()=>{

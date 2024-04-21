@@ -40,12 +40,6 @@ const Sidebar: React.FC<{onSectionChange: (section: string) => void}>= ({onSecti
       link: "/cashflow-statement",
       section: 'cashflowStatement',
     },
-    {
-      icon: <ShowChartIcon />,
-      text: "Historical Dividend",
-      link: "/historical-dividend",
-      section: 'historicalDividend',
-    },
   ];
 
   return (

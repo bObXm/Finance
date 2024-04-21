@@ -11,7 +11,7 @@ const CardList: React.FC<{ addToPortfolio: (stock: CompanySearch) => void }> = (
   return (
     <div>
       {!searchResults ? (
-        <Alert sx={{ marginTop: 2 }} severity="info">Search for a company ticker symbol</Alert>
+        <Alert sx={{ marginTop: 2 }} severity="info">It is possible that I run out of free API calls</Alert>
       ) : (
         searchResults.map((el: CompanySearch) => (
           <CardInfo key={uuidv4()} name={el.name} symbol={el.symbol} currency={el.currency} id={el.symbol} exchangeShortName={el.exchangeShortName} stockExchange={el.stockExchange} addToPortfolio={addToPortfolio}/>
